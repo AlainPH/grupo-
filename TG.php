@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['score'])) {
     $_SESSION['score'] = 0;
 }
-
+// COMENTARIO DE PRUEBA PARA GIT
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_answer = $_POST['answer'] ?? '';
     $correct_answer = $_SESSION['correct_answer'] ?? '';
