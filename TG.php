@@ -13,11 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['score']++;
         $message = "¡Correcto! Tu puntuación es: " . $_SESSION['score'];
     } else {
-        $message = "Incorrecto. La respuesta era $correct_answer. Tu puntuación sigue en: " . $_SESSION['score'];
+        $_SESSION['score']=0;
+        $message = "Incorrecto. La respuesta era $correct_answer. Tu puntuación se reinicio a: " . $_SESSION['score'];
     }
 }
 
-$number1 = rand(1, 10);
+$number1 = rand(1, 100);
 $number2 = rand(1, 10);
 $correct_answer = $number1 + $number2;
 $_SESSION['correct_answer'] = $correct_answer;
@@ -75,6 +76,7 @@ $_SESSION['correct_answer'] = $correct_answer;
 <body>
     <div class="container">
         <h1>Juego de Matemáticas</h1>
+
         <p>¿Cuánto es <?php echo $number1; ?> + <?php echo $number2; ?>?</p>
         <form method="post">
             <input type="number" name="answer" required>
